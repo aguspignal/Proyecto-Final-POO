@@ -4,9 +4,9 @@
 class Admin : Usuario {
 	
 public:
-	Admin(string nombre, int dni, int cod_usuario)
+	Admin(std::string nombre, int dni, int cod_usuario)
 		: Usuario(nombre,dni,cod_usuario){
-		admin = true
+		setAdminStatus(true);
 	}
 	
 	/// ...
