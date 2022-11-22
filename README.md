@@ -2,7 +2,7 @@
 
 ## Idea
 
-...
+Sistema de gestion para una escuela secundaria.
 
 ## Herramientas
 
