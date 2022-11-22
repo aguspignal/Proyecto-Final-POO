@@ -9,10 +9,7 @@ bool Application::OnInit() {
 	WinExample *win = new WinExample(NULL);
 	win->Show();
 	
-	/// ... 
-	/// esto seria el equivalente a lo que va en el main()
-	/// todo el codigo que se ejecuta al inicio de la app 
-	/// ...
+	/// ... Codigo que se ejecuta al iniciar equivalente al main() ...
 	
 	return true;
 }

@@ -6,30 +6,24 @@
 using namespace std;
 
 class Usuario {
-	int cod_usuario;
-	char nombre[50];
+	char nombre[60];
+	char password[20];
+	char email[50];
 	int dni;
-	bool admin;
+	int edad;
+	int anio_ingreso;
 	
 public:
-	Usuario(std::string nombre, int dni, int cod_usuario){
-		strcpy(this->nombre,nombre.c_str()); // transforma un string a char[]
-		this->cod_usuario = cod_usuario;
-		this->dni = dni;
-		admin = false;
-	}
+	Usuario(string nombre, string passowrd, string email, int dni, int edad, int anio);
 	
-	int getCodUsuario() { return cod_usuario; }
-	void setCodUsuario(int cod) { cod_usuario = cod; }
+	string getNombre();
+	string getPassword();
+	string getEmail();
+	int getDNI();
+	int getEdad();
+	int getIngreso();
 	
-	std::string getNombre() { return nombre; }
-	void setNombre(string n) { strcpy(this->nombre,n.c_str()); }
-	
-	int getDNI() { return dni; }
-	void setDNI(int dni) { this->dni = dni; }
-	
-	bool getAdmingStatus() { return admin; }
-	void setAdminStatus(bool s) { admin = s; }
+	void changePassword(string psw);
 };
 
 #endif
