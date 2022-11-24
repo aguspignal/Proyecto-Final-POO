@@ -6,6 +6,7 @@
 using namespace std;
 
 class Usuario {
+private:
 	char nombre[60];
 	char password[20];
 	char email[50];
