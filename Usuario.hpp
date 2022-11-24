@@ -3,25 +3,27 @@
 
 #include<string>
 #include <cstring>
+#include <ctime>
 using namespace std;
 
 class Usuario {
+private:
 	char nombre[60];
 	char password[20];
 	char email[50];
 	int dni;
 	int edad;
-	int anio_ingreso;
+	char* anio_ingreso; // fecha de registro
 	
 public:
-	Usuario(string nombre, string passowrd, string email, int dni, int edad, int anio);
+	Usuario(string nombre, string passowrd, string email, int dni, int edad);
 	
 	string getNombre();
 	string getPassword();
 	string getEmail();
 	int getDNI();
 	int getEdad();
-	int getIngreso();
+	char* getIngreso();
 	
 	void changePassword(string psw);
 };

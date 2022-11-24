@@ -5,17 +5,22 @@
 #include <vector>
 using namespace std;
 
+struct NombreCurso {
+	int anio;
+	char division;
+};
+
 class Curso {
+private:
   vector<Usuario> integrantes;
   vector<string> materias;
-  int curso; // Tambien se podria guardar los dos en un unico string
-  char division;
+  NombreCurso curso;
 
 public:
   Curso(int anio, char division);
   Curso();
 
-  string getCurso();
+  NombreCurso getCurso();
   vector<Usuario> getIntegrantes();
   vector<string> getMaterias();
 

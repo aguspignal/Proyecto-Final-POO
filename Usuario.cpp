@@ -4,14 +4,17 @@
 using namespace std;
 
 /// Establecer los atributos basicos de cualquier usuario
-Usuario::Usuario(string nombre, string password, string email, int dni,
-                 int edad, int anio) {
+Usuario::Usuario(string nombre, string password, string email, int dni, int edad) {
   strcpy(this->nombre, nombre.c_str());
   strcpy(this->password, password.c_str());
   strcpy(this->email, email.c_str());
   this->dni = dni;
   this->edad = edad;
-  this->anio_ingreso = anio;
+  
+  // toma la fecha y hora actual por ej Jueves 24 Nov 2022 00:26:35
+  time_t timer = time(0);
+  char* fechaActual = ctime(&timer);
+  this->anio_ingreso = fechaActual;
 }
 
 /// Obtener nombre
@@ -39,7 +42,7 @@ int Usuario::getDNI() { return dni; }
 int Usuario::getEdad() { return edad; }
 
 /// Obtener a�o de ingreso
-int Usuario::getIngreso() { return anio_ingreso; }
+char* Usuario::getIngreso() { return anio_ingreso; }
 
 /// Cambiar contrase�a
 void Usuario::changePassword(string psw) {
