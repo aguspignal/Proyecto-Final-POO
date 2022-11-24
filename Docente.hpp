@@ -13,7 +13,7 @@ private:
 	
 public:
 	Docente(string nombre, string apellido, string email, 
-			int dni, int edad, int anioIngreso);
+			int dni, int edad);
 	
 };
 
