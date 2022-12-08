@@ -26,4 +26,6 @@ int Usuario::getEdad() { return m_edad; }
 
 int Usuario::getIngreso() { return m_anioIngreso; }
 
-void Usuario::changePassword(string psw) { strcpy(m_password, psw.c_str()); }
+void Usuario::changePassword(string t_psw) {
+  strcpy(m_password, t_psw.c_str());
+}
