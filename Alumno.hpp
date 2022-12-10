@@ -2,6 +2,7 @@
 #define ALUMNO_H
 
 #include "Usuario.hpp"
+#include "Curso.hpp"
 #include <iostream>
 #include <map>
 using namespace std;

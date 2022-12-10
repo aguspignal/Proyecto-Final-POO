@@ -3,29 +3,28 @@
 
 /// Establecer curso con un a�o y division;
 Curso::Curso(int anio, char division) {
-  this->curso = anio;
-  this->division = division;
+  this->curso.anio = anio;
+  this->curso.division = division;
 }
 
 // Constructor por defecto en primer anio
 Curso::Curso() {
-  this->curso = 1;
-  this->division = 'A';
+  this->curso.anio = 1;
+  this->curso.division = 'A';
 }
 
-/// Retornar a�o y division
-string Curso::getCurso() {
-  string str = (to_string(curso) + " " + division);
-  return str;
+/// Retornar anio y division
+NombreCurso Curso::getCurso() {
+  return curso;
 }
 
-/// A�adir nuevo ALumno/Docente/Preceptor al curso
+/// Agregar nuevo ALumno/Docente/Preceptor al curso
 void Curso::addIntegrante(Usuario u) { integrantes.push_back(u); }
 
 /// Retornar vector con Alumnos, Docentes y Precetores
 vector<Usuario> Curso::getIntegrantes() { return integrantes; }
 
-/// A�adir materia al curso
+/// Agregar materia al curso
 void Curso::addMateria(string m) { materias.push_back(m); }
 
 /// Retornar vector con Materias
