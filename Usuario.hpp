@@ -17,6 +17,7 @@ class Usuario {
 public:
   Usuario(string t_nombre, string t_passowrd, string t_email, int t_dni,
           int t_edad, int t_anio);
+
   string getNombre();
   string getPassword();
   string getEmail();
