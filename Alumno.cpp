@@ -15,3 +15,16 @@ float Alumno::getNota(string t_materia) {
   else
     return -1; // Ver si -1 es lo mas viable a retornar
 }
+
+float Alumno::getPromedio() {
+  float sumaTotal = 0;
+  int cantMaterias = 0;
+
+  for (auto i = m_historiaAcademica.begin(); i = !m_historiaAcademica.end();
+       i++) {
+    sumaTotal += i->second;
+    cantMaterias++;
+  }
+
+  return sumaTotal / cantMaterias;
+}
