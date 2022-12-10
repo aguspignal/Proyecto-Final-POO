@@ -1,15 +1,18 @@
 #ifndef ALUMNO_H
 #define ALUMNO_H
 
-#include "Usuario.hpp"
 #include "Curso.hpp"
+#include "Usuario.hpp"
 #include <iostream>
 #include <map>
+
 using namespace std;
 
 class Alumno : public Usuario {
 private:
   map<string, float> m_historiaAcademica;
+  int m_anio;
+  int m_division;
 
 public:
   Alumno(string t_nombre, string t_passowrd, string t_email, int t_dni,
