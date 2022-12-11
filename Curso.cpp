@@ -1,31 +1,27 @@
 #include "Curso.hpp"
 #include <iostream>
 
-/// Establecer curso con un a�o y division;
-Curso::Curso(int anio, char division) {
-  this->curso.anio = anio;
-  this->curso.division = division;
+Curso::Curso(int t_anio, char t_division) {
+  m_curso.anio = t_anio;
+  m_curso.division = t_division;
 }
 
 // Constructor por defecto en primer anio
 Curso::Curso() {
-  this->curso.anio = 1;
-  this->curso.division = 'A';
+  m_curso.anio = 1;
+  m_curso.division = 'A';
 }
 
-/// Retornar anio y division
-NombreCurso Curso::getCurso() {
-  return curso;
+NombreCurso Curso::getCurso() { return m_curso; }
+
+list<Usuario> Curso::getIntegrantes(){};
+
+vector<string> Curso::getMaterias() { return m_materias; }
+
+void Curso::addAlumno(Alumno t_alumno) { m_integrantes.push_back(t_alumno); }
+
+void Curso::addDocente(Docente t_docente) {
+  m_integrantes.push_front(t_docente);
 }
 
-/// Agregar nuevo ALumno/Docente/Preceptor al curso
-void Curso::addIntegrante(Usuario u) { integrantes.push_back(u); }
-
-/// Retornar vector con Alumnos, Docentes y Precetores
-vector<Usuario> Curso::getIntegrantes() { return integrantes; }
-
-/// Agregar materia al curso
-void Curso::addMateria(string m) { materias.push_back(m); }
-
-/// Retornar vector con Materias
-vector<string> Curso::getMaterias() { return materias; }
+void Curso::addMateria(string t_materia) { m_materias.push_back(t_materia); }

@@ -1,31 +1,36 @@
 #ifndef CURSO_H
 #define CURSO_H
 
+#include "Alumno.hpp"
+#include "Docente.hpp"
 #include "Usuario.hpp"
+#include <list>
 #include <vector>
+
 using namespace std;
 
 struct NombreCurso {
-	int anio;
-	char division;
+  int anio;
+  char division;
 };
 
 class Curso {
 private:
-  vector<Usuario> integrantes;
-  vector<string> materias;
-  NombreCurso curso;
+  list<Usuario> m_integrantes;
+  vector<string> m_materias;
+  NombreCurso m_curso;
 
 public:
-  Curso(int anio, char division);
+  Curso(int t_anio, char t_division);
   Curso();
 
   NombreCurso getCurso();
-  vector<Usuario> getIntegrantes();
+  list<Usuario> getIntegrantes();
   vector<string> getMaterias();
 
-  void addIntegrante(Usuario u);
-  void addMateria(string m);
+  void addAlumno(Alumno t_alumno);
+  void addDocente(Docente t_docente);
+  void addMateria(string t_materia);
 };
 
 #endif
