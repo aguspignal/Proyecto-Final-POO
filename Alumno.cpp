@@ -8,12 +8,12 @@ Alumno::Alumno(string t_nombre, string t_passowrd, string t_email, int t_dni,
   m_division = t_division;
 };
 
-/// Modificar nota
 void Alumno::setNota(string t_materia, float t_nota) {
   m_historiaAcademica[t_materia] = t_nota;
 }
 
-/// Retornar nota
+tuple<int, char> Alumno::getCurso() { return make_tuple(m_anio, m_division); }
+
 float Alumno::getNota(string t_materia) {
   if ((m_historiaAcademica.find(t_materia)) != m_historiaAcademica.end())
     return m_historiaAcademica[t_materia];
