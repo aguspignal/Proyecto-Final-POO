@@ -8,15 +8,17 @@
 
 using namespace std;
 
-class Docente : Usuario {
+class Docente : public Usuario {
 private:
-  map<string, NombreCurso> m_materiaCursoACargo; // materia, curso
+  map<NombreCurso, string> m_cursoMateriaACargo; // materia, curso
 
 public:
   Docente(string t_nombre, string t_passowrd, string t_email, int t_dni,
           int t_edad, int t_anioIngreso);
 
-  void setMateriaCurso(string t_materia, NombreCurso t_curso);
+  void setCursoMateria(NombreCurso t_curso, string t_materia);
+
+  void removeCursoMateria(map<NombreCurso, string> t_cursoMateria);
 };
 
 #endif
