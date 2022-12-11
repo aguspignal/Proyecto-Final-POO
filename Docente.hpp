@@ -14,7 +14,7 @@ private:
 
 public:
   Docente(string t_nombre, string t_passowrd, string t_email, int t_dni,
-          int t_edad, int t_anioIngreso);
+          int t_edad);
 
   void setCursoMateria(NombreCurso t_curso, string t_materia);
 

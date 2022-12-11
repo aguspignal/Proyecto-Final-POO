@@ -2,8 +2,8 @@
 #include <iostream>
 
 Docente::Docente(string t_nombre, string t_passowrd, string t_email, int t_dni,
-                 int t_edad, int t_anioIngreso)
-    : Usuario(t_nombre, t_passowrd, t_email, t_dni, t_edad, t_anioIngreso){};
+                 int t_edad)
+    : Usuario(t_nombre, t_passowrd, t_email, t_dni, t_edad){};
 
 void Docente::setCursoMateria(NombreCurso t_curso, string t_materia) {
   m_cursoMateriaACargo[t_curso] = t_materia;
