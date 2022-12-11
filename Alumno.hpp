@@ -11,8 +11,7 @@ using namespace std;
 class Alumno : public Usuario {
 private:
   map<string, float> m_historiaAcademica;
-  int m_anio;
-  char m_division;
+  NombreCurso curso;
 
 public:
   Alumno(string t_nombre, string t_passowrd, string t_email, int t_dni,
@@ -20,7 +19,7 @@ public:
 
   void setNota(string t_materia, float t_nota);
 
-  tuple<int, char> getCurso();
+  NombreCurso getCurso();
   float getNota(string t_materia);
   float getPromedio();
 };
