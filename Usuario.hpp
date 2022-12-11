@@ -12,18 +12,18 @@ class Usuario {
   char m_email[50];
   int m_dni;
   int m_edad;
-  int m_anioIngreso;
+  char *m_anioIngreso;
 
 public:
   Usuario(string t_nombre, string t_passowrd, string t_email, int t_dni,
-          int t_edad, int t_anio);
+          int t_edad);
 
   string getNombre();
   string getPassword();
   string getEmail();
   int getDNI();
   int getEdad();
-  int getIngreso();
+  char *getIngreso();
 
   void changePassword(string t_psw);
 };
