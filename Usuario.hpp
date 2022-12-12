@@ -7,29 +7,17 @@
 
 using namespace std;
 
-struct NombreCurso {
-	int anio;
-	char division;
-	
-	bool operator<(NombreCurso c){
-		if(anio == c.anio){
-			return division < c.division;
-		} else {
-			return anio < c.anio;
-		}
-	}
-};
-
 struct RegistroUsuario {
-	char m_nombre[60];
+	char m_nombre[70];
 	char m_password[20];
 	char m_email[50];
 	int m_dni;
 	int m_edad;
 };
 
-class Usuario {
-  char m_nombre[60];
+class Usuario {	
+  char m_nombre[50];
+  char m_apellido[50];
   char m_password[20];
   char m_email[50];
   int m_dni;
@@ -37,7 +25,7 @@ class Usuario {
   char *m_anioIngreso;
 
 public:
-  Usuario(string t_nombre, string t_passowrd, string t_email, int t_dni,
+  Usuario(string t_nombre, string t_apellido, string t_passowrd, string t_email, int t_dni,
           int t_edad);
 
   string getNombre();
@@ -49,5 +37,6 @@ public:
 
   void changePassword(string t_psw);
 };
+
 
 #endif

@@ -1,9 +1,9 @@
 #include "Alumno.hpp"
 #include <iostream>
 
-Alumno::Alumno(string t_nombre, string t_passowrd, string t_email, int t_dni,
+Alumno::Alumno(string t_nombre, string t_apellido, string t_passowrd, string t_email, int t_dni,
                int t_edad, int t_anio, char t_division)
-    : Usuario(t_nombre, t_passowrd, t_email, t_dni, t_edad) {
+    : Usuario(t_nombre, t_apellido, t_passowrd, t_email, t_dni, t_edad) {
   m_curso.anio = t_anio;
   m_curso.division = t_division;
 };

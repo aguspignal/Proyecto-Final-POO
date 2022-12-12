@@ -5,9 +5,10 @@
 using namespace std;
 
 // Establecer los atributos basicos de cualquier usuario
-Usuario::Usuario(string t_nombre, string t_password, string t_email, int t_dni,
+Usuario::Usuario(string t_nombre, string t_apellido, string t_password, string t_email, int t_dni,
                  int t_edad) {
   strcpy(m_nombre, t_nombre.c_str());
+  strcpy(m_apellido, t_apellido.c_str());
   strcpy(m_password, t_password.c_str());
   strcpy(m_email, t_email.c_str());
   m_dni = t_dni;
