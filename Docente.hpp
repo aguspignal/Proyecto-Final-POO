@@ -10,15 +10,17 @@ using namespace std;
 
 class Docente : public Usuario {
 private:
-  map<NombreCurso, string> m_cursoMateriaACargo; // materia, curso
-
+   map<NombreCurso, string> m_MateriasACargo; 
+	
 public:
   Docente(string t_nombre, string t_passowrd, string t_email, int t_dni,
           int t_edad);
+  Docente(string t_nombre, string t_passowrd, string t_email, int t_dni,
+		  int t_edad, NombreCurso t_curso, vector<string>v);
 
-  void setCursoMateria(NombreCurso t_curso, string t_materia);
+   void setMateriasACargo(NombreCurso t_curso, string t_materia);
 
-  void removeCursoMateria(map<NombreCurso, string> t_cursoMateria);
+   void removeMateriasACargo(map<NombreCurso, string> t_cursoMateria);
 };
 
 #endif

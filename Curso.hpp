@@ -8,16 +8,13 @@
 
 using namespace std;
 
-struct NombreCurso {
-  int anio;
-  char division;
-};
-
 class Curso {
 private:
-  list<Usuario> m_integrantes;
+  vector<*Usuario> m_integrantes;
   vector<string> m_materias;
   NombreCurso m_curso;
+  string archivo_materias;
+  string archivo_integrantes;
 
 public:
   Curso(int t_anio, char t_division);
