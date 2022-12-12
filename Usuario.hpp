@@ -10,6 +10,14 @@ using namespace std;
 struct NombreCurso {
 	int anio;
 	char division;
+	
+	bool operator<(NombreCurso c){
+		if(anio == c.anio){
+			return division < c.division;
+		} else {
+			return anio < c.anio;
+		}
+	}
 };
 
 struct RegistroUsuario {

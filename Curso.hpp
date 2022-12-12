@@ -5,12 +5,13 @@
 #include "Docente.hpp"
 #include <list>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
 class Curso {
 private:
-  vector<*Usuario> m_integrantes;
+  vector<Usuario> m_integrantes;
   vector<string> m_materias;
   NombreCurso m_curso;
   string archivo_materias;
@@ -24,9 +25,24 @@ public:
   list<Usuario> getIntegrantes();
   vector<string> getMaterias();
 
-  void addAlumno(Alumno t_alumno);
-  void addDocente(Docente t_docente);
+  /// Agregar y eliminar Usuarios del curso
+  void addIntegrante(Usuario u);
+  void deleteIntegrante(Usuario u);
+  
+  /// Agregar y eliminar Materias
   void addMateria(string t_materia);
+  void deleteMateria(string t_materia);
+  
+//  Usuario &operator[](int i){
+//	  return m_integrantes[i];
+//  }
+  
 };
+
+/// Sobrecarga operador==
+bool operator==(Usuario u1, Usuario u2){
+	u1.getDNI() == u2.getDNI() ? true : false;
+}
+
 
 #endif
