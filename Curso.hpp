@@ -32,12 +32,9 @@ public:
   /// Agregar y eliminar Materias
   void addMateria(string t_materia);
   void deleteMateria(string t_materia);
-  
-//  Usuario &operator[](int i){
-//	  return m_integrantes[i];
-//  }
-  
+    
 };
+
 
 /// Sobrecarga operador==
 bool operator==(Usuario u1, Usuario u2){

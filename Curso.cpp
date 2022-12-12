@@ -30,21 +30,45 @@ Curso::Curso(int t_anio, char t_division) {
 	RegistroUsuario r;
 	archiIntegrantes.read(reinterpret_cast<char*>(&r),sizeof(r));
 	
+	string str = r.m_nombre;
+	string apellido = str.substr(0,str.find(",",0));
+	string nombre = str.substr(str.find(",",0),str.length());
+	
 	string s_tipoUsuario = tipoUsuario;
 	if(s_tipoUsuario == "DOCENTE"){
 		char materias[60];
 		archiIntegrantes.read(reinterpret_cast<char*>(&materias),sizeof(materias));
-			
-		/**
-		Las materias estan escritas como "Materia,Materia,...,Materia"
-		Hay que separar cada Materia en un string distinto (nos ayudamos con las comas)
-		y sumarlas al map de Docente con el NombreCurso que corresponda dependiendo del archivo.
-		**/
 		
+		// Suponiendo que un profe puede dar hasta un max de 3 materias...
 		vector<string> v;
-		NombreCurso c; c.anio = t_anio; c.division = t_division;
+		string str = materias;
+		auto pos = str.find(",",0);
+		if(pos == string::npos){ // significa que hay una sola materia
+			v.push_back(str);
+		} else { // hay mas de una
+			
+			string m1 = str.substr(0,pos); // la primera hasta la ","
+			
+			if(str.find(",",pos+1) == string::npos){ // significa que hay 2 materias porque no encontro otra "," despues de la primera
+				string m2 = str.substr(pos+1,str.length());
+				v.push_back(m1);
+				v.push_back(m2);
+			} else { // encontro otra "," despues de la primera entonces hay 3 materias
+				auto pos2 = str.find(",",pos+1);
+				string m2 = str.substr(pos+1,pos2);
+				string m3 = str.substr(pos2+1,str.length());
+				v.push_back(m1);
+				v.push_back(m2);
+				v.push_back(m3);
+			}
+		}
+		
+		NombreCurso c; 
+		c.anio = t_anio; 
+		c.division = t_division;
+		
 		Usuario *u = new Docente
-			(r.m_nombre, r.m_password, r.m_email, r.m_dni, r.m_edad, c, v);
+			(nombre, apellido, r.m_password, r.m_email, r.m_dni, r.m_edad, c, v);
 		
 		m_integrantes.push_back(*u);
 		
