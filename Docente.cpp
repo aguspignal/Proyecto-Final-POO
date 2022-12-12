@@ -1,6 +1,7 @@
 #include "Docente.hpp"
 #include <iostream>
 
+// Constructor por defecto
 Docente::Docente(string t_nombre, string t_passowrd, string t_email, int t_dni,
                  int t_edad)
     : Usuario(t_nombre, t_passowrd, t_email, t_dni, t_edad){};
