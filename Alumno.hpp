@@ -1,6 +1,7 @@
 #ifndef ALUMNO_H
 #define ALUMNO_H
 
+#include "Curso.hpp"
 #include "Usuario.hpp"
 #include <iostream>
 #include <map>

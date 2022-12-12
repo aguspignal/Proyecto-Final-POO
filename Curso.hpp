@@ -10,7 +10,7 @@ using namespace std;
 
 class Curso {
 private:
-  list<*Usuario> m_integrantes;
+  vector<*Usuario> m_integrantes;
   vector<string> m_materias;
   NombreCurso m_curso;
   string archivo_materias;

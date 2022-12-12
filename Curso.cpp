@@ -4,6 +4,7 @@
 Curso::Curso(int t_anio, char t_division) {
   m_curso.anio = t_anio;
   m_curso.division = t_division;
+
   archivo_materias = "materias"+to_string(t_anio)+".bin";
   
   ifstream archiMaterias(archivo_materias.c_str(),ios::binary|ios::in);
@@ -62,8 +63,6 @@ NombreCurso Curso::getCurso() { return m_curso; }
 list<Usuario> Curso::getIntegrantes(){};
 
 vector<string> Curso::getMaterias() { 
-	
-	
 	return m_materias; 
 }
 

@@ -1,6 +1,7 @@
 #ifndef DOCENTE_H
 #define DOCENTE_H
 
+#include "Curso.hpp"
 #include "Usuario.hpp"
 #include <iostream>
 #include <map>
