@@ -1,50 +1,36 @@
 #include "Usuario.hpp"
+#include <ctime>
 #include <iostream>
 
 using namespace std;
 
-/// Establecer los atributos basicos de cualquier usuario
-Usuario::Usuario(string nombre, string password, string email, int dni, int edad) {
-  strcpy(this->nombre, nombre.c_str());
-  strcpy(this->password, password.c_str());
-  strcpy(this->email, email.c_str());
-  this->dni = dni;
-  this->edad = edad;
-  
-  // toma la fecha y hora actual por ej Jueves 24 Nov 2022 00:26:35
+// Establecer los atributos basicos de cualquier usuario
+Usuario::Usuario(string t_nombre, string t_password, string t_email, int t_dni,
+                 int t_edad) {
+  strcpy(m_nombre, t_nombre.c_str());
+  strcpy(m_password, t_password.c_str());
+  strcpy(m_email, t_email.c_str());
+  m_dni = t_dni;
+  m_edad = t_edad;
+
   time_t timer = time(0);
-  char* fechaActual = ctime(&timer);
-  this->anio_ingreso = fechaActual;
+  char *fechaActual = ctime(&timer);
+
+  m_anioIngreso = fechaActual;
 }
 
-/// Obtener nombre
-string Usuario::getNombre() {
-  string m_nombre = nombre;
-  return m_nombre;
-}
+string Usuario::getNombre() { return m_nombre; }
 
-/// Obtener password
-string Usuario::getPassword() {
-  string psw = password;
-  return psw;
-}
+string Usuario::getPassword() { return m_password; }
 
-/// Obtener email
-string Usuario::getEmail() {
-  string m_email = email;
-  return m_email;
-}
+string Usuario::getEmail() { return m_email; }
 
-/// Obtener dni
-int Usuario::getDNI() { return dni; }
+int Usuario::getDNI() { return m_dni; }
 
-/// Obtener edad
-int Usuario::getEdad() { return edad; }
+int Usuario::getEdad() { return m_edad; }
 
-/// Obtener a�o de ingreso
-char* Usuario::getIngreso() { return anio_ingreso; }
+char *Usuario::getIngreso() { return m_anioIngreso; }
 
-/// Cambiar contrase�a
-void Usuario::changePassword(string psw) {
-  strcpy(this->password, psw.c_str());
+void Usuario::changePassword(string t_psw) {
+  strcpy(m_password, t_psw.c_str());
 }
