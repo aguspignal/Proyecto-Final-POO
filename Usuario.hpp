@@ -36,6 +36,15 @@ public:
   char *getIngreso();
 
   void changePassword(string t_psw);
+  
+  /// Sobrecarga operador==
+  bool operator==(Usuario u1){
+	  if(u1.getDNI() == this->m_dni){
+		  return true;
+	  } else {
+		  return false;
+	  }
+  }
 };
 
 
