@@ -35,11 +35,4 @@ public:
     
 };
 
-
-/// Sobrecarga operador==
-bool operator==(Usuario u1, Usuario u2){
-	u1.getDNI() == u2.getDNI() ? true : false;
-}
-
-
 #endif
