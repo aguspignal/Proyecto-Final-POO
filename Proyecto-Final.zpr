@@ -15,7 +15,7 @@ tab_use_spaces=0
 explorer_path=.
 inspection_improving_template=wxString|>printf "%ls",${EXP}.m_impl._M_data()
 inherits_from=
-current_source=Curso.cpp
+current_source=Usuario.hpp
 path_char=\
 [source]
 path=Application.cpp
@@ -31,7 +31,6 @@ cursor=-1:0
 [source]
 path=Curso.cpp
 cursor=67:2
-open=true
 [source]
 path=Usuario.cpp
 cursor=10:19
@@ -54,10 +53,12 @@ hide_symbols=1
 cursor=-1:1324
 [header]
 path=Curso.hpp
-cursor=34:2
+cursor=35:2
+open=true
 [header]
 path=Usuario.hpp
-cursor=6:0
+cursor=38:2
+open=true
 [header]
 path=Alumno.hpp
 cursor=21:26

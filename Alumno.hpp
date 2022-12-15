@@ -8,11 +8,6 @@
 
 using namespace std;
 
-struct NotaAlumno {
-	string materia;
-	float nota; 
-};
-
 class Alumno : public Usuario {
 private:
   map<string, float> m_historiaAcademica;

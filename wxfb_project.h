@@ -1,12 +1,11 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version May 26 2017)
+// C++ code generated with wxFormBuilder (version 3.10.1-0-g8feb16b3)
 // http://www.wxformbuilder.org/
 //
-// PLEASE DO "NOT" EDIT THIS FILE!
+// PLEASE DO *NOT* EDIT THIS FILE!
 ///////////////////////////////////////////////////////////////////////////
 
-#ifndef __WXFB_PROJECT_H__
-#define __WXFB_PROJECT_H__
+#pragma once
 
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
@@ -16,34 +15,37 @@
 #include <wx/font.h>
 #include <wx/colour.h>
 #include <wx/settings.h>
-#include <wx/button.h>
+#include <wx/textctrl.h>
 #include <wx/sizer.h>
+#include <wx/button.h>
+#include <wx/bitmap.h>
+#include <wx/image.h>
+#include <wx/icon.h>
 #include <wx/frame.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class wxfbExample
+/// Class LoginFrame
 ///////////////////////////////////////////////////////////////////////////////
-class wxfbExample : public wxFrame 
+class LoginFrame : public wxFrame
 {
 	private:
-	
+
 	protected:
-		wxStaticText* m_staticText1;
-		wxButton* m_button1;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnButtonClose( wxCommandEvent& event ) { event.Skip(); }
-		
-	
+		wxStaticText* m_title;
+		wxStaticText* label_dni;
+		wxTextCtrl* input_dni;
+		wxStaticText* label_psw;
+		wxTextCtrl* input_psw;
+		wxButton* btn_ingresar;
+
 	public:
-		
-		wxfbExample( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
-		
-		~wxfbExample();
-	
+
+		LoginFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,400 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+
+		~LoginFrame();
+
 };
 
-#endif //__WXFB_PROJECT_H__
