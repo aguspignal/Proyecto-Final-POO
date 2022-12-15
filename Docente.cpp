@@ -5,12 +5,12 @@
 // Constructor por defecto
 Docente::Docente(string t_nombre,string t_apellido, string t_passowrd, string t_email, int t_dni,
                  int t_edad)
-    : Usuario(t_nombre, t_apellido, t_passowrd, t_email, t_dni, t_edad){};
+    : Usuario(t_nombre, t_passowrd, t_email, t_dni, t_edad){};
 
 // Constructor que recibe el curso (dependiendo del archivo del cual se creo la instancia) y un vector con sus materias
 Docente::Docente(string t_nombre, string t_apellido, string t_passowrd, string t_email, int t_dni,
 				 int t_edad, NombreCurso t_curso, vector<string>v)
-	: Usuario(t_nombre, t_apellido, t_passowrd, t_email, t_dni, t_edad){
+	: Usuario(t_nombre, t_passowrd, t_email, t_dni, t_edad){
 	
 	for(int i=0; i<v.size(); i++){
 		MateriaYCurso n;

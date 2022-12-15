@@ -1,5 +1,7 @@
 #ifndef MATERIAYCURSO_H
 #define MATERIAYCURSO_H
+#include <string>
+using namespace std;
 
 struct NombreCurso {
 	int anio;
@@ -18,6 +20,11 @@ struct NombreCurso {
 struct MateriaYCurso{
 	NombreCurso curso;
 	string materia;
+};
+
+struct NotaAlumno {
+	string materia;
+	float nota; 
 };
 
 #endif
