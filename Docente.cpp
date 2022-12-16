@@ -20,6 +20,10 @@ Docente::Docente(string t_nombre, string t_apellido, string t_passowrd, string t
 	}
 };
 
+void Docente::leerUsuario(){
+	
+}
+
 //void Docente::setMateriasACargo(NombreCurso t_curso, string t_materia) {
 //  m_MateriasACargo[t_curso] = t_materia;
 //}

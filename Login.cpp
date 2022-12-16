@@ -1,6 +1,6 @@
 #include "Login.h"
-
-Login::Login(wxWindow *parent) : LoginFrame(parent) {
+//							  no tiene ventana madre,  inicializa el puntero
+Login::Login(Escuela *escuela) : LoginFrame(nullptr), m_escuela(escuela) {
 	
 }
 

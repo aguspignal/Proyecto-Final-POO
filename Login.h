@@ -1,5 +1,6 @@
 #ifndef LOGIN_H
 #define LOGIN_H
+#include "Escuela.hpp"
 #include "wxfb_project.h"
 
 class Login : public LoginFrame {

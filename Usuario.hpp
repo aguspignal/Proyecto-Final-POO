@@ -11,20 +11,29 @@
 using namespace std;
 
 struct RegistroUsuario {
-	char m_nombre[70];
-	char m_password[20];
-	char m_email[50];
-	int m_dni;
-	int m_edad;
+	char nombre[70];
+	char password[20];
+	char email[50];
+	int dni;
+	int edad;
 };
 
+/**
+ Lo mejor va a ser que Usuario sea abstracta, cada vez que creemos una instancia va a tener que ser
+ Usuario *u = new Alumno/Docente( argumentos )
+ Puesto que Usuario no representa a nadie en si mismo y a parte nos sirve para algun que otro
+ metodo como LeerUsuario()
+**/
+
 class Usuario {	
+private:
   char m_nombre[70];
   char m_password[20];
   char m_email[50];
   int m_dni;
-  int m_edad;
-  char *m_anioIngreso;
+  int m_edad; 
+  // Borro fecha de ingreso porque no andaria. Se estaria guardando la fecha en la que
+  // se inicio el programa todas las veces, no en la que la persona fue registrada
 
 public:
 	Usuario(){};
@@ -45,16 +54,12 @@ public:
   int getEdad();
   void setEdad(int e);
   
-  char *getIngreso();
-
-  void changePassword(string t_psw);
-    
-  // notar que recibe una instancia de ifstream no la ruta del archivo
-  RegistroUsuario LeerUsuario(ifstream &archi, NombreCurso nombre_curso);
+	
+  virtual void leerUsuario()=0;
   
   /// Sobrecarga operador==
-  bool operator==(Usuario u1){
-	  if(u1.getDNI() == this->m_dni){
+  bool operator==(Usuario *u1){
+	  if(u1->getDNI() == this->m_dni){
 		  return true;
 	  } else {
 		  return false;

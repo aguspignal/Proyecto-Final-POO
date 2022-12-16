@@ -11,7 +11,7 @@ using namespace std;
 
 class Curso {
 private:
-  vector<Usuario> m_integrantes;
+  vector<Usuario*> m_integrantes;
   vector<string> m_materias;
   NombreCurso m_curso;
   string archivo_materias;
@@ -22,17 +22,23 @@ public:
   Curso();
 
   NombreCurso getCurso();
-  list<Usuario> getIntegrantes();
   vector<string> getMaterias();
 
   /// Agregar y eliminar Usuarios del curso
-  void addIntegrante(Usuario u);
-  void deleteIntegrante(Usuario u);
+  void cargarAlumnos();
+  void addIntegrante(Usuario *u);
+  void deleteIntegrante(Usuario *u);
   
   /// Agregar y eliminar Materias
+  void cargarMaterias(ifstream &archiMaterias);
   void addMateria(string t_materia);
   void deleteMateria(string t_materia);
     
+  /** 
+  Este metodo se conectaria a materias.bin para actualizar m_materias, y a alumnos/docentes.bin
+  para actualizar m_integrantes. m_curso ya lo declara el constructor
+  **/
+  void cargarCurso();
 };
 
 #endif
