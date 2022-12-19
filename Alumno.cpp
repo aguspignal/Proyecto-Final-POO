@@ -42,39 +42,53 @@ float Alumno::getPromedio() {
 }
 
 /// Cargar Alumno desde binario
-void Alumno::leerUsuario(){
+bool Alumno::leerUsuario(){
 	ifstream archiAlumnos("alumnos.bin",ios::binary);
 	
-	// Lee y asigna los datos principales
-	RegistroUsuario reg;
-	archiAlumnos.read(reinterpret_cast<char*>(&reg),sizeof(reg));
-	setNombre(reg.nombre);
-	setPassword(reg.password);
-	setEmail(reg.email);
-	setDNI(reg.dni);
-	setEdad(reg.edad);
-	
-	// Captura la linea que contiene el curso
-	char row[2];
-	archiAlumnos.read(reinterpret_cast<char*>(&row),sizeof(row));
-	NombreCurso curso;
-	curso.anio = row[0];
-	curso.division = row[1];
-	setCurso(curso);
-	
-	// Calcula cantidad de materias a leer
-	ifstream archiMaterias("materias"+std::to_string(curso.anio)+".bin",
-						   ios::binary|ios::in|ios::ate);
-
-	char m[30];
-	int cant_materias = archiMaterias.tellg() / sizeof(m);
-	archiMaterias.close();
-	
-	// Lee y asigna las notas
-	for(int i=0; i<cant_materias; i++){
-		NotaAlumno nota;
-		archiAlumnos.read(reinterpret_cast<char*>(&nota),sizeof(nota));
-		setNota(nota.materia, nota.nota);
+	char checkFinal[3];
+	archiAlumnos.read(reinterpret_cast<char*>(&checkFinal),sizeof(checkFinal));
+	string str = checkFinal;
+	if(str == "FIN"){
+		return false;
+	} else {
+		// Lee y asigna los datos principales
+		RegistroUsuario reg;
+		archiAlumnos.read(reinterpret_cast<char*>(&reg),sizeof(reg));
+		setNombre(reg.nombre);
+		setPassword(reg.password);
+		setEmail(reg.email);
+		setDNI(reg.dni);
+		setEdad(reg.edad);
+		
+		// Captura la linea que contiene el curso
+		char row[2];
+		archiAlumnos.read(reinterpret_cast<char*>(&row),sizeof(row));
+		NombreCurso curso;
+		curso.anio = row[0];
+		curso.division = row[1];
+		setCurso(curso);
+		
+		// Calcula cantidad de materias a leer
+		ifstream archiMaterias("materias"+std::to_string(curso.anio)+".bin",
+							   ios::binary|ios::in|ios::ate);
+		
+		char m[30];
+		int cant_materias = archiMaterias.tellg() / sizeof(m);
+		archiMaterias.close();
+		
+		// Lee y asigna las notas
+		for(int i=0; i<cant_materias; i++){
+			NotaAlumno nota;
+			archiAlumnos.read(reinterpret_cast<char*>(&nota),sizeof(nota));
+			setNota(nota.materia, nota.nota);
+		}
+		
+		archiAlumnos.close();
+		return true;
 	}
+	
+	// si paso algo raro y no entro al if()
+	archiAlumnos.close();
+	return false;
 }
 

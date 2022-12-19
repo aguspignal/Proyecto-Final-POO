@@ -55,7 +55,7 @@ public:
   void setEdad(int e);
   
 	
-  virtual void leerUsuario()=0;
+  virtual bool leerUsuario()=0;
   
   /// Sobrecarga operador==
   bool operator==(Usuario *u1){

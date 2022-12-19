@@ -26,7 +26,7 @@ public:
 
   float getPromedio();
   
-  void leerUsuario() override;
+  bool leerUsuario() override;
 };
 
 #endif

@@ -20,8 +20,33 @@ Docente::Docente(string t_nombre, string t_apellido, string t_passowrd, string t
 	}
 };
 
-void Docente::leerUsuario(){
+bool Docente::leerUsuario(){
+	ifstream archiDocentes("docentes.bin",ios::binary);
 	
+	char checkFinal[3];
+	archiDocentes.read(reinterpret_cast<char*>(&checkFinal),sizeof(checkFinal));
+	string str = checkFinal;
+	if(str == "FIN"){
+		return false;
+	} else {
+		// Lee y asigna los datos principales
+		RegistroUsuario reg;
+		archiDocentes.read(reinterpret_cast<char*>(&reg),sizeof(reg));
+		setNombre(reg.nombre);
+		setPassword(reg.password);
+		setEmail(reg.email);
+		setDNI(reg.dni);
+		setEdad(reg.edad);
+		
+		/// ... code ...
+		
+		archiDocentes.close();
+		return true;
+	}
+	
+	// si paso algo raro y no entro al if()
+	archiDocentes.close();
+	return false;
 }
 
 //void Docente::setMateriasACargo(NombreCurso t_curso, string t_materia) {
