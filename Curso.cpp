@@ -25,14 +25,14 @@ vector<string> Curso::getMaterias() {
 	return m_materias; 
 }
 
-void Curso::addIntegrante(Usuario *u){
-	m_integrantes.push_back(u);
-}
-
-void Curso::deleteIntegrante(Usuario *u){
-	auto it = find(m_integrantes.begin(),m_integrantes.end(),u);
-	m_integrantes.erase(it);
-}
+//void Curso::addIntegrante(Usuario *u){
+//	m_integrantes.push_back(u);
+//}
+//
+//void Curso::deleteIntegrante(Usuario *u){
+//	auto it = find(m_integrantes.begin(),m_integrantes.end(),u);
+//	m_integrantes.erase(it);
+//}
 
 void Curso::cargarMaterias(ifstream &archiMaterias){
 	// se aceptan correcciones, tengo dudas
@@ -57,7 +57,36 @@ void Curso::deleteMateria(string t_materia) {
 }
 
 void Curso::cargarCurso(){
+	ifstream archiMaterias("materias"+to_string(m_curso.anio)+".bin",ios::binary|ios::in);
+	cargarMaterias(archiMaterias);
+	archiMaterias.close();
 	
+	ifstream archiAlumnos("alumnos.bin",ios::binary|ios::in);
+	
+	bool result;
+	Alumno alumno;
+	do{
+		result = alumno.leerUsuario();
+		if(result){
+			if(alumno.getCurso() == m_curso){
+				m_alumnos.push_back(alumno);
+			}
+		}
+	}while(result == true);
+	
+	Docente docente;
+	do{
+		result = docente.leerUsuario();
+		if(result){
+			for(CursoMateria curso_materia : docente.getMateriasACargo()){
+				if(curso_materia.anio == m_curso.anio){
+					m_docentes.push_back(docente);
+				}
+			}
+		}
+	}while(result == true );
+	
+	archiAlumnos.close();
 }
 
 

@@ -51,7 +51,7 @@ bool Alumno::leerUsuario(){
 	if(str == "FIN"){
 		return false;
 	} else {
-		// Lee y asigna los datos principales
+		archiAlumnos.seekg(-1,archiAlumnos.cur);
 		RegistroUsuario reg;
 		archiAlumnos.read(reinterpret_cast<char*>(&reg),sizeof(reg));
 		setNombre(reg.nombre);
@@ -60,7 +60,6 @@ bool Alumno::leerUsuario(){
 		setDNI(reg.dni);
 		setEdad(reg.edad);
 		
-		// Captura la linea que contiene el curso
 		char row[2];
 		archiAlumnos.read(reinterpret_cast<char*>(&row),sizeof(row));
 		NombreCurso curso;
@@ -68,15 +67,12 @@ bool Alumno::leerUsuario(){
 		curso.division = row[1];
 		setCurso(curso);
 		
-		// Calcula cantidad de materias a leer
 		ifstream archiMaterias("materias"+std::to_string(curso.anio)+".bin",
 							   ios::binary|ios::in|ios::ate);
-		
 		char m[30];
 		int cant_materias = archiMaterias.tellg() / sizeof(m);
 		archiMaterias.close();
 		
-		// Lee y asigna las notas
 		for(int i=0; i<cant_materias; i++){
 			NotaAlumno nota;
 			archiAlumnos.read(reinterpret_cast<char*>(&nota),sizeof(nota));
@@ -87,7 +83,6 @@ bool Alumno::leerUsuario(){
 		return true;
 	}
 	
-	// si paso algo raro y no entro al if()
 	archiAlumnos.close();
 	return false;
 }
