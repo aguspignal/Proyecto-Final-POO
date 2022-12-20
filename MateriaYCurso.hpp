@@ -14,11 +14,16 @@ struct NombreCurso {
 			return anio < c.anio;
 		}
 	}
+	
+	bool operator==(NombreCurso c){
+		if(anio == c.anio && division == c.division){
+			return true;
+		} else { return false; }
+	}
 };
 
-// para mi queda medio croto el nombre si se te ocurre otro joya jajajaj
-struct MateriaYCurso{
-	NombreCurso curso;
+struct CursoMateria {
+	int anio;
 	string materia;
 };
 

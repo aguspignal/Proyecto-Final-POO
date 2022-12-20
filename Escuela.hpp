@@ -30,7 +30,7 @@ public:
 	un solo elemento y chau (?
 	- Si Docente: Los cursos en los que tiene materias a cargo
 	**/
-	bool AutenticarDatosLogin(long log_dni, string log_password);
+	bool AutenticarDatosLogin(int choice, long log_dni, string log_password);
 };
 
 #endif
