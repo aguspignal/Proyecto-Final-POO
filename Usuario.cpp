@@ -5,11 +5,10 @@
 
 using namespace std;
 
-Usuario::Usuario(string t_nombre, string t_password, string t_email, int t_dni,
-                 int t_edad) {
-  strcpy(m_nombre, t_nombre.c_str());
-  strcpy(m_password, t_password.c_str());
-  strcpy(m_email, t_email.c_str());
+Usuario::Usuario(string t_nombre, string t_password, string t_email, string t_dni,int t_edad) {
+  m_nombre = t_nombre;
+  m_password = t_password;
+  m_email = t_email;
   m_dni = t_dni;
   m_edad = t_edad;
 }
@@ -18,27 +17,27 @@ Usuario::Usuario(string t_nombre, string t_password, string t_email, int t_dni,
 string Usuario::getNombre() { return m_nombre; }
 
 void Usuario::setNombre(string n){
-	strcpy(this->m_nombre,n.c_str());
+	this->m_nombre = n;
 }
 
 /// Operaciones con Password
 string Usuario::getPassword() { return m_password; }
 
 void Usuario::setPassword(string p){
-	strcpy(this->m_password,p.c_str());
+	this->m_password = p;
 }
 
 /// Operaciones con Email
 string Usuario::getEmail() { return m_email; }
 
 void Usuario::setEmail(string e){
-	strcpy(this->m_email,e.c_str());
+	this->m_email = e;
 }
 
 /// Operaciones con DNI
-int Usuario::getDNI() { return m_dni; }
+string Usuario::getDNI() { return m_dni; }
 
-void Usuario::setDNI(int dni){
+void Usuario::setDNI(string dni){
 	this->m_dni = dni;
 }
 
