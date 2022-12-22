@@ -28,7 +28,7 @@ struct CursoMateria {
 };
 
 struct NotaAlumno {
-	char materia[30];
+	char materia[50];
 	float nota; 
 };
 

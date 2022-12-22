@@ -8,9 +8,7 @@ Curso::Curso(int t_anio, char t_division) {
   m_curso.anio = t_anio;
   m_curso.division = t_division;
   
-  ifstream archiMaterias("materias"+to_string(t_anio)+".bin",ios::binary|ios::in|ios::ate);
-  cargarMaterias(archiMaterias);
-  
+  cargarCurso();
 }
 
 // Constructor por defecto en primer anio
@@ -25,25 +23,16 @@ vector<string> Curso::getMaterias() {
 	return m_materias; 
 }
 
-//void Curso::addIntegrante(Usuario *u){
-//	m_integrantes.push_back(u);
-//}
-//
-//void Curso::deleteIntegrante(Usuario *u){
-//	auto it = find(m_integrantes.begin(),m_integrantes.end(),u);
-//	m_integrantes.erase(it);
-//}
-
 void Curso::cargarMaterias(ifstream &archiMaterias){
 	// se aceptan correcciones, tengo dudas
-	char m[30];
-	int cant_materias = archiMaterias.tellg() / sizeof(m);
+	char materia[50];
+	int cant_materias = archiMaterias.tellg() / sizeof(materia);
 	archiMaterias.seekg(0);
 	
 	for(int i=0; i<cant_materias; i++){
-		archiMaterias.read(reinterpret_cast<char*>(&m),sizeof(m));
-		string materia = m;
-		addMateria(materia);
+		archiMaterias.read(reinterpret_cast<char*>(&materia),sizeof(materia));
+		string m = materia;
+		addMateria(m);
 	}
 }
 
@@ -61,32 +50,33 @@ void Curso::cargarCurso(){
 	cargarMaterias(archiMaterias);
 	archiMaterias.close();
 	
-	ifstream archiAlumnos("alumnos.bin",ios::binary|ios::in);
-	
 	bool result;
-	Alumno alumno;
+	
+	ifstream archiAlumnos("alumnos.bin",ios::binary|ios::in);
+	Alumno *alumno;
 	do{
-		result = alumno.leerUsuario();
+		result = alumno->leerUsuario();
 		if(result){
-			if(alumno.getCurso() == m_curso){
+			if(alumno->getCurso() == m_curso){
 				m_alumnos.push_back(alumno);
 			}
 		}
 	}while(result == true);
+	archiAlumnos.close();
 	
-	Docente docente;
+	ifstream archiDocentes("docentes.bin",ios::binary|ios::in);
+	Docente *docente;
 	do{
-		result = docente.leerUsuario();
+		result = docente->leerUsuario();
 		if(result){
-			for(CursoMateria curso_materia : docente.getMateriasACargo()){
+			for(CursoMateria curso_materia : docente->getMateriasACargo()){
 				if(curso_materia.anio == m_curso.anio){
 					m_docentes.push_back(docente);
 				}
 			}
 		}
 	}while(result == true );
-	
-	archiAlumnos.close();
+	archiDocentes.close();
 }
 
 

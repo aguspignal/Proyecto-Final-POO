@@ -15,8 +15,8 @@ private:
 
 public:
 	Alumno(){};
-  Alumno(string t_nombre, string t_apellido, string t_passowrd, string t_email, int t_dni,
-         int t_edad, int t_anio, char t_division);
+  Alumno(string t_nombre, string t_apellido, string t_passowrd, string t_email, 
+		string t_dni, int t_edad, int t_anio, char t_division);
   
   float getNota(string t_materia);
   void setNota(string t_materia, float t_nota);
@@ -24,9 +24,10 @@ public:
   NombreCurso getCurso();
   void setCurso(NombreCurso t_curso);
 
-  float getPromedio();
+//  float getPromedio();
   
   bool leerUsuario() override;
+  bool guardarUsuario();
 };
 
 #endif

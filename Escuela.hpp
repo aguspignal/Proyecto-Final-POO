@@ -20,17 +20,8 @@ private:
 public:
 	Escuela(){};
 	
-	/** 
-	Todavia no esta implementado, la idea es que verifique si el DNI y Psw ingresados
-	EXISTEN en el archivo alumnos.bin o docentes.bin (aca esta mi actual problema)
-	segun lo que se indico en la ventana anterior
+	bool AutenticarDatosLogin(int choice, string log_dni, string log_password);
 	
-	En caso de existir se me ocurren dos caminos:
-	- Si Alumno: El programa deberia cargar SOLO el curso de ESE alumno. m_cursos puede tener
-	un solo elemento y chau (?
-	- Si Docente: Los cursos en los que tiene materias a cargo
-	**/
-	bool AutenticarDatosLogin(int choice, long log_dni, string log_password);
 };
 
 #endif
