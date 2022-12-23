@@ -27,7 +27,9 @@ public:
 //  float getPromedio();
   
   bool leerUsuario() override;
-  bool guardarUsuario();
+  Alumno getAlumnoByDNI(string dni);
+  
+  ~Alumno(){};
 };
 
 #endif

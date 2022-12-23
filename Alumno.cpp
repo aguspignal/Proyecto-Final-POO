@@ -49,8 +49,7 @@ bool Alumno::leerUsuario(){
 	archiAlumnos.read(reinterpret_cast<char*>(&reg),sizeof(reg));
 	
 	string str = reg.nombre;
-	string aux = str.substr(0,3);
-	if(aux == "FIN"){
+	if(str == "fin"){
 		return false;
 	} else {
 		setNombre(reg.nombre);
@@ -75,15 +74,17 @@ bool Alumno::leerUsuario(){
 			
 			setNota(materia,nota);
 		}
+		
+		return true;
 	}
 	
 	archiAlumnos.close();
-	return true;
+	return false;
 }
 
-/// Guarda Alumno al binario
-bool Alumno::guardarUsuario(){
+Alumno Alumno::getAlumnoByDNI(string dni){
 	
 }
+
 
 

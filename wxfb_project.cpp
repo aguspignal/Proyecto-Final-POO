@@ -9,67 +9,92 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
-LoginFrame::LoginFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+BaseChoiceFrame::BaseChoiceFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
-	wxBoxSizer* main_layout;
-	main_layout = new wxBoxSizer( wxVERTICAL );
+	wxBoxSizer* bSizer4;
+	bSizer4 = new wxBoxSizer( wxVERTICAL );
+
+	txt_Institucion = new wxStaticText( this, wxID_ANY, wxT("Nombre de la Institucion"), wxDefaultPosition, wxDefaultSize, 0 );
+	txt_Institucion->Wrap( -1 );
+	bSizer4->Add( txt_Institucion, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
-	main_layout->Add( 0, 40, 0, 0, 5 );
+	bSizer4->Add( 0, 0, 1, wxEXPAND, 5 );
 
-	m_title = new wxStaticText( this, wxID_ANY, wxT("Nombre de la Institucion"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_title->Wrap( -1 );
-	m_title->SetFont( wxFont( 18, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, wxT("Century Gothic") ) );
+	wxBoxSizer* bSizer9;
+	bSizer9 = new wxBoxSizer( wxVERTICAL );
 
-	main_layout->Add( m_title, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	wxBoxSizer* bSizer6;
+	bSizer6 = new wxBoxSizer( wxVERTICAL );
 
+	txt_DNI = new wxStaticText( this, wxID_ANY, wxT("DNI"), wxDefaultPosition, wxDefaultSize, 0 );
+	txt_DNI->Wrap( -1 );
+	bSizer6->Add( txt_DNI, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
-	main_layout->Add( 0, 30, 0, wxEXPAND, 5 );
-
-	wxBoxSizer* box_dni;
-	box_dni = new wxBoxSizer( wxVERTICAL );
-
-	label_dni = new wxStaticText( this, wxID_ANY, wxT("DNI"), wxDefaultPosition, wxDefaultSize, 0 );
-	label_dni->Wrap( -1 );
-	box_dni->Add( label_dni, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-
-	input_dni = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), 0 );
-	box_dni->Add( input_dni, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	input_DNI = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer6->Add( input_DNI, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
-	main_layout->Add( box_dni, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer9->Add( bSizer6, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer8;
+	bSizer8 = new wxBoxSizer( wxVERTICAL );
+
+	txt_Psw = new wxStaticText( this, wxID_ANY, wxT("Password"), wxDefaultPosition, wxDefaultSize, 0 );
+	txt_Psw->Wrap( -1 );
+	bSizer8->Add( txt_Psw, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	input_Psw = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer8->Add( input_Psw, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
-	main_layout->Add( 0, 25, 0, wxEXPAND, 5 );
-
-	wxBoxSizer* box_psw;
-	box_psw = new wxBoxSizer( wxVERTICAL );
-
-	label_psw = new wxStaticText( this, wxID_ANY, wxT("Contraseña"), wxDefaultPosition, wxDefaultSize, 0 );
-	label_psw->Wrap( -1 );
-	box_psw->Add( label_psw, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-
-	input_psw = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), 0 );
-	box_psw->Add( input_psw, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer9->Add( bSizer8, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
 
 
-	main_layout->Add( box_psw, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	bSizer4->Add( bSizer9, 0, wxEXPAND, 5 );
 
 
-	main_layout->Add( 0, 45, 0, wxEXPAND, 5 );
+	bSizer4->Add( 0, 0, 1, wxEXPAND, 5 );
 
-	btn_ingresar = new wxButton( this, wxID_ANY, wxT("Ingresar"), wxDefaultPosition, wxDefaultSize, 0 );
-	main_layout->Add( btn_ingresar, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	txt_IngresarComo = new wxStaticText( this, wxID_ANY, wxT("Ingresar como: "), wxDefaultPosition, wxDefaultSize, 0 );
+	txt_IngresarComo->Wrap( -1 );
+	bSizer4->Add( txt_IngresarComo, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+
+	wxBoxSizer* bSizer5;
+	bSizer5 = new wxBoxSizer( wxHORIZONTAL );
+
+	btn_Alumno = new wxButton( this, wxID_ANY, wxT("Alumno"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer5->Add( btn_Alumno, 1, wxALL, 5 );
+
+	btn_Docente = new wxButton( this, wxID_ANY, wxT("Docente"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer5->Add( btn_Docente, 1, wxALL, 5 );
 
 
-	this->SetSizer( main_layout );
+	bSizer4->Add( bSizer5, 0, wxEXPAND, 5 );
+
+
+	bSizer4->Add( 0, 0, 1, wxEXPAND, 5 );
+
+
+	bSizer4->Add( 0, 0, 1, wxEXPAND, 5 );
+
+
+	this->SetSizer( bSizer4 );
 	this->Layout();
 
 	this->Centre( wxBOTH );
+
+	// Connect Events
+	btn_Alumno->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseChoiceFrame::IngresarComoAlumno ), NULL, this );
+	btn_Docente->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseChoiceFrame::IngresarComoDocente ), NULL, this );
 }
 
-LoginFrame::~LoginFrame()
+BaseChoiceFrame::~BaseChoiceFrame()
 {
+	// Disconnect Events
+	btn_Alumno->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseChoiceFrame::IngresarComoAlumno ), NULL, this );
+	btn_Docente->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( BaseChoiceFrame::IngresarComoDocente ), NULL, this );
+
 }

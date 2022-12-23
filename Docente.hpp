@@ -20,7 +20,6 @@ public:
   vector<CursoMateria> getMateriasACargo();
   
   bool leerUsuario() override;
-  bool guardarUsuario();
 //   void setMateriasACargo(NombreCurso t_curso, string t_materia);
 //   void removeMateriasACargo(map<NombreCurso, string> t_cursoMateria);
 };

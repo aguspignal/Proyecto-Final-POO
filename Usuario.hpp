@@ -31,6 +31,8 @@ public:
 	Usuario(string t_nombre, string t_passowrd, string t_email, 
 			string t_dni, int t_edad);
 
+	void setData(string n, string p, string em, string dni, int e);
+	
   string getNombre();
   void setNombre(string n);
   
@@ -48,7 +50,6 @@ public:
   
 	
   virtual bool leerUsuario()=0;
-  virtual bool guardarUsuario()=0;
   
   /// Sobrecarga operador==
   bool operator==(Usuario *u1){
@@ -58,6 +59,8 @@ public:
 		  return false;
 	  }
   }
+  
+  virtual ~Usuario(){};
 };
 
 

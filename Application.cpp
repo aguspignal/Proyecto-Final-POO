@@ -1,6 +1,6 @@
 #include <wx/image.h>
-#include "Application.h"
-#include "Login.h"
+#include "Application.hpp"
+#include "ChoiceFrame.h"
 
 IMPLEMENT_APP(Application)
 
@@ -8,7 +8,7 @@ bool Application::OnInit() {
 	m_escuela = new Escuela();
 	
 	wxInitAllImageHandlers();
-	Login *win = new Login(m_escuela);
+	ChoiceFrame *win = new ChoiceFrame(m_escuela);
 	win->Show();
 	
 	return true;

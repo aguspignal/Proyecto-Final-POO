@@ -36,10 +36,6 @@ bool Docente::leerUsuario(){
 	return true;
 }
 
-bool Docente::guardarUsuario(){
-	
-}
-
 
 //void Docente::setMateriasACargo(NombreCurso t_curso, string t_materia) {
 //  m_MateriasACargo[t_curso] = t_materia;

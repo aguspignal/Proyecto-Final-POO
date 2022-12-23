@@ -5,6 +5,7 @@
 
 #include <string>
 #include <vector>
+#include <tuple>
 using namespace std;
 
 /** 
@@ -15,13 +16,11 @@ using namespace std;
 class Escuela {
 private:
 	vector<Curso>m_cursos; // en duda aun
-	Usuario *user; // ¿? representando al user activo, capaz puede ser de utilidad
 	
 public:
 	Escuela(){};
 	
-	bool AutenticarDatosLogin(int choice, string log_dni, string log_password);
-	
+	tuple<Usuario*,bool> AutenticarDatosLogin(int choice, string log_dni, string log_password);
 };
 
 #endif
