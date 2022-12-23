@@ -27,25 +27,32 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class LoginFrame
+/// Class BaseChoiceFrame
 ///////////////////////////////////////////////////////////////////////////////
-class LoginFrame : public wxFrame
+class BaseChoiceFrame : public wxFrame
 {
 	private:
 
 	protected:
-		wxStaticText* m_title;
-		wxStaticText* label_dni;
-		wxTextCtrl* input_dni;
-		wxStaticText* label_psw;
-		wxTextCtrl* input_psw;
-		wxButton* btn_ingresar;
+		wxStaticText* txt_Institucion;
+		wxStaticText* txt_DNI;
+		wxTextCtrl* input_DNI;
+		wxStaticText* txt_Psw;
+		wxTextCtrl* input_Psw;
+		wxStaticText* txt_IngresarComo;
+		wxButton* btn_Alumno;
+		wxButton* btn_Docente;
+
+		// Virtual event handlers, override them in your derived class
+		virtual void IngresarComoAlumno( wxCommandEvent& event ) { event.Skip(); }
+		virtual void IngresarComoDocente( wxCommandEvent& event ) { event.Skip(); }
+
 
 	public:
 
-		LoginFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,400 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		BaseChoiceFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 409,352 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 
-		~LoginFrame();
+		~BaseChoiceFrame();
 
 };
 

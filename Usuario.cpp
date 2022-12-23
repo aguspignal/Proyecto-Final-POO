@@ -13,6 +13,14 @@ Usuario::Usuario(string t_nombre, string t_password, string t_email, string t_dn
   m_edad = t_edad;
 }
 
+void Usuario::setData(string n, string p, string em, string dni, int e){
+	setNombre(n);
+	setPassword(p);
+	setEmail(em);
+	setDNI(dni);
+	setEdad(e);
+}
+
 /// Operaciones con Nombre
 string Usuario::getNombre() { return m_nombre; }
 
